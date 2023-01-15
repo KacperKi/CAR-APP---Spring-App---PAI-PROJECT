@@ -1,0 +1,87 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Strona Główna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML HomePage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="homePage.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+
+
+    <header class="header">
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+      <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
+
+      <a href="#" class="logo">Auto-Serwis</a>
+      <nav class="nav-items">
+        <a href="#">Strona Główna</a>
+        <a href="#">Sprawdź usługę</a>
+        <a href="#">O nas</a>
+        <a href="#">Kontakt</a>
+      </nav>
+    </header>
+
+
+
+    <main>
+      <div class="intro">
+        <h1>Auto serwis!</h1>
+        <p>Najlepszy serwis w Twojej okolicy!</p>
+        <button>Umów wizytę</button>
+      </div>
+      <div class="achievements">
+        <div class="work">
+          <i class="fas fa-user-graduate"></i>
+          <p class="work-heading">Doświadczenie</p>
+          <p class="work-text">Nasze usługi bazują na wieloletnim doświadczeniu naszych pracowników. Staramy się zapewnić państwu jak najlepsze emocje,
+          związane z wizytą w naszym serwisie. Dzięki Państwu firma funkcjonuje już od ponad 30 lat!</p>
+        </div>
+        <div class="work">
+          <i class="fas fa-skiing"></i>
+          <p class="work-heading">Umiejętności</p>
+          <p class="work-text">Stanowczość i precyzyjność w połączeniu z umiejętnościami, przkładają się na wyniki w rankingach oraz na efekt
+          naprawy, który jak Państwo mogą ocenić - zawsze spotyka się z pozytywnym odbiorem.</p>
+        </div>
+        <div class="work">
+          <i class="fas fa-people-carry"></i>
+          <p class="work-heading">Usługi</p>
+          <p class="work-text">W naszej ofercie znajdziecie Państwo ponad 20 typów usług, od najmniejszych problemów - które spotykają w nas nieoczekiwanym
+            momencie, po takie - które musza zostać umówione zgodnie z formularzem zgłoszeniowym!</p>
+        </div>
+      </div>
+
+      <div class="about-me">
+        <img src="/images/aboutUs.jpg" alt="me">
+
+        <div class="about-me-text">
+          <h2>Dalej się zastanawiasz?</h2>
+          <p>
+              <i>Jako jedyny serwis w Polsce</i>, oferujemy Państwu system przypomnień oraz darmowe ekspertyzy w ramach karty stały klient!
+              <br>
+              To zaszczyt z Państwem pracować, za co serdecznie dziękujemy.
+            <br>Co zyskasz?
+            <ul>
+                <li>Czas - zadbamy o Ciebie, o planowane zadania oraz ekspertyzy</li>
+                <li>Pieniądze - bo z nami taniej</li>
+                <li>Przypomnienia o wizytach oraz potrzebnych zabiegach</li>
+                <li>Pewność - zdobądź zaufanie do nas i swojego auta!</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </main>
+
+
+
+  </body>
+
+    <div class="container" th:include="layout::footer"></div>
+</html>
