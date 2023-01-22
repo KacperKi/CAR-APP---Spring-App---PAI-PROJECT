@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="/css/homePage.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
 </head>
 
     <body>
@@ -16,7 +18,7 @@
               crossorigin="anonymous">
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
-        <a href="#" class="logo">Auto-Serwis</a>
+        <a href="/" class="logo">Auto-Serwis</a>
         <nav class="nav-items">
             <a href="/">Strona Główna</a>
             <a href="#">Sprawdź usługę</a>
@@ -27,7 +29,7 @@
 
         <main>
 
-            <div class="intro">
+            <div class="intro" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(/images/background-two.jpg);">
                 <h1>Auto serwis!</h1>
 
                 <h2 id="nameOfPage" th:text="${pageName}"></h2>
@@ -45,28 +47,6 @@
                         }
                     });
                 </script>
-            </div>
-
-
-            <div class="achievements">
-                <div class="work">
-                    <i class="fas fa-user-graduate"></i>
-                    <p class="work-heading">Doświadczenie</p>
-                    <p class="work-text">Nasze usługi bazują na wieloletnim doświadczeniu naszych pracowników. Staramy się zapewnić państwu jak najlepsze emocje,
-                        związane z wizytą w naszym serwisie. Dzięki Państwu firma funkcjonuje już od ponad 30 lat!</p>
-                </div>
-                <div class="work">
-                    <i class="fas fa-skiing"></i>
-                    <p class="work-heading">Umiejętności</p>
-                    <p class="work-text">Stanowczość i precyzyjność w połączeniu z umiejętnościami, przkładają się na wyniki w rankingach oraz na efekt
-                        naprawy, który jak Państwo mogą ocenić - zawsze spotyka się z pozytywnym odbiorem.</p>
-                </div>
-                <div class="work">
-                    <i class="fas fa-people-carry"></i>
-                    <p class="work-heading">Usługi</p>
-                    <p class="work-text">W naszej ofercie znajdziecie Państwo ponad 20 typów usług, od najmniejszych problemów - które spotykają w nas nieoczekiwanym
-                        momencie, po takie - które musza zostać umówione zgodnie z formularzem zgłoszeniowym!</p>
-                </div>
             </div>
 
 
@@ -90,6 +70,143 @@
                     </p>
                 </div>
             </div>
+
+            <!--Google MAPS-->
+            <!--Google MAPS-->
+            <!--Google MAPS-->
+            <!--Google MAPS-->
+
+
+            <div class="about-me">
+
+                <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Politechnika%20Lubelska&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net"></a><br><style>.mapouter{position:relative;text-align:right;height:400px;width:600px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:600px;}</style></div></div>
+                <div>&nbsp;</div>
+
+                <div class="about-me-text" style="margin-left:10px;">
+                    <h2>Jedna lokalizacja!</h2>
+
+                    <div style="font-size: 25px;" >
+                        <p>
+                           Zapraszamy pod wskazany adres!
+                        </p>
+                        <i class="far fa-phone-alt"></i>
+                        <a href="tel:81 85 74 687">Zadzwoń teraz!</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Section: Contact v.2-->
+            <!--Section: Contact v.2-->
+            <!--Section: Contact v.2-->
+
+
+            <div class="about-me">
+                <!--Section: Contact v.2-->
+                <section class="mb-4">
+
+                    <!--Section heading-->
+                    <h2 class="h1-responsive font-weight-bold text-center my-4">Napisz do nas</h2>
+                    <!--Section description-->
+                    <p class="text-center w-responsive mx-auto mb-5">Czy masz jakieś pytania?
+                        Opisz swój problem i napisz do nas! Tylko dzięki dobremu opisowi uzyskasz dobrą odpowiedź!</p>
+
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-9 mb-md-0 mb-5">
+                            <form id="contact-form" name="contact-form" action="#" method="POST">
+
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="name" name="name" class="form-control">
+                                            <label for="name" class="">Twoje imię</label>
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="email" name="email" class="form-control">
+                                            <label for="email" class="">Twój email</label>
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+
+                                </div>
+                                <!--Grid row-->
+
+                                <!--Grid row-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="subject" name="subject" class="form-control">
+                                            <label for="subject" class="">Temat</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Grid row-->
+
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+
+                                        <div class="md-form">
+                                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                            <label for="message">Twoja wiadomość</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--Grid row-->
+
+                            </form>
+
+                            <div class="text-center text-md-left">
+                                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Wyślij</a>
+                            </div>
+                            <div class="status"></div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-3 text-center">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                    <p>Lublin, Nadbystrzycka 32B</p>
+                                </li>
+
+                                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                    <p>
+                                        <a href="tel:81 85 74 687">+ 81 85 74 687</a>
+                                    </p>
+                                </li>
+
+                                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                    <p>
+                                        <a href = "mailto:autoserwis@onecior.pl?subject = Feedback&body = Message">
+                                            Wyślij maila - autoserwis@onecior.pl
+                                        </a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
         </main>
 
     </body>
