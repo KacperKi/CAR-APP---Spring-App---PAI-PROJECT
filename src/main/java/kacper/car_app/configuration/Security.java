@@ -44,9 +44,9 @@ public class Security extends WebSecurityConfigurerAdapter {
             http.httpBasic().disable().csrf().disable()
                     .authorizeRequests()
                     .antMatchers(
-
                             "/resources/static/**",
-                            "/home",
+                            "/home","/**",
+                            "/about-us/**",
                             "/js/**",
                             "/css/**",
                             "/register",

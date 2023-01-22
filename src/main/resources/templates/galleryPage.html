@@ -1,0 +1,119 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Nasz zespół</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="/css/homePage.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+  <style>
+      .jumbotron {
+        text-align: center;
+        padding: 20px;
+        margin: 10px 0;
+      }
+
+      .gallery {
+        padding: 40px;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 0;
+        position: relative;
+      }
+    </style>
+</head>
+
+
+<body>
+
+<header class="header">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
+
+  <a href="#" class="logo">Auto-Serwis</a>
+  <nav class="nav-items">
+    <a href="/">Strona Główna</a>
+    <a href="#">Sprawdź usługę</a>
+    <a href="/about-us/onas">O nas</a>
+    <a href="/about-us/kontakt">Kontakt</a>
+  </nav>
+</header>
+
+    <body>
+    <div class="container-fluid">
+      <div class="jumbotron">
+        <h1>Zaufani!</h1>
+        <p>
+          Firma "Auto-Serwis" to profesjonalny zakład mechaniczny specjalizujący się w naprawie samochodów osobowych i dostawczych.
+          Posiada wykwalifikowany personel oraz nowoczesny sprzęt diagnostyczny i narzędziowy,
+          co pozwala na szybką i skuteczną naprawę różnego rodzaju usterek.
+          Oferta firmy obejmuje między innymi naprawy silników, skrzyń biegów, układów hamulcowych i klimatyzacji,
+          a także wymianę oleju i filtrów. Auto-Serwis oferuje również usługi wulkanizacji oraz przeglądy techniczne.
+          Wszystkie naprawy są wykonywane zgodnie z najwyższymi standardami jakości,
+          a klienci mogą liczyć na indywidualne podejście i fachową poradę.
+        </p>
+      </div>
+
+      <div class="row gallery">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/1.jpeg">
+            <img class="img-fluid"src="/imagesGallery/1.jpeg">
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/2.jpg">
+            <img class="img-fluid"src="/imagesGallery/2.jpg">
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/3.jpg">
+            <img class="img-fluid"src="/imagesGallery/3.jpg">
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/4.jpg">
+            <img class="img-fluid"src="/imagesGallery/4.jpg">
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/5.jpg">
+            <img class="img-fluid"src="/imagesGallery/5.jpg">
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/6.jpg">
+            <img class="img-fluid"src="/imagesGallery/6.jpg">
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/7.jpg">
+            <img class="img-fluid"src="/imagesGallery/7.jpg">
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <a href="/imagesGallery/8.jpg">
+            <img class="img-fluid"src="/imagesGallery/8.jpg">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run(".gallery", {
+          animation: "slideIn"
+        });
+      </script>
+    </body>
+
+</body>
+
+<div class="container" th:include="layout::footer"></div>
+</html>

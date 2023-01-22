@@ -55,6 +55,15 @@ body {
   margin: 0;
 }
 
+.intro h2 {
+  font-family: sans-serif;
+  font-size: 45px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 .intro p {
   font-size: 20px;
   color: #d1d1d1;
