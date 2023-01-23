@@ -43,28 +43,34 @@ public class Security extends WebSecurityConfigurerAdapter {
         protected void configure(HttpSecurity http) throws Exception {
             http.httpBasic().disable().csrf().disable()
                     .authorizeRequests()
+                    .antMatchers("/client/**").authenticated()
+                    .antMatchers("/adminPanel").authenticated()
+                    .antMatchers("/adminMainPage").authenticated()
                     .antMatchers(
                             "/resources/static/**",
                             "/js/**",
                             "/css/**",
                             "/register",
+                            "/home",
+                            "/home",
+                            "/**",
+                            "/about-us/**",
                             "/business/**").permitAll()
-                    .antMatchers("/client/**").denyAll()
-                    .anyRequest().permitAll()
-                    .and()
+                    .anyRequest().authenticated()
+                        .and()
                     .formLogin()
-                    .loginPage("/adminPanel/login")
+                    .loginPage("/login")
                     .usernameParameter("login")
-                    .usernameParameter("password")
-                    .defaultSuccessUrl("/client/showClients", true)
+                    .passwordParameter("passwd")
+                    .defaultSuccessUrl("/adminMainPage", true)
                     .permitAll()
-                    .and()
+                        .and()
                     .logout()
                     .logoutUrl("/logout")
                     .logoutSuccessUrl("/login")
                     .invalidateHttpSession(true)
-                     .and()
+                        .and()
                     .formLogin()
-                    .failureUrl("/error-page.html");
+                    .failureUrl("/login-error");
     }
 }

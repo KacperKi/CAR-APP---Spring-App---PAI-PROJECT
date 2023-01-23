@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class businessController {
-
     @GetMapping("/")
     public ModelAndView showHomePage(){
         return new ModelAndView("homePage");
