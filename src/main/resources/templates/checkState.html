@@ -2,7 +2,7 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>FAQs</title>
+  <title>Sprawdź usługę</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="/css/homePage.css" rel="stylesheet">
@@ -38,10 +38,29 @@
         Auto serwis!
       </h1>
       <h2>Sprawdź swoje zgłoszenie</h2>
-      <p>
 
-      </p>
     </div>
+
+
+    <form style="max-width:50%; margin:auto; margin-top:40px;" th:action="@{/check-state}" method="POST" th:object="${zgloszenie}">
+      <fieldset disabled>
+        <legend>Status naprawy</legend>
+        <br>
+        <div class="mb-3">
+          <label for="statusNaprawy" class="form-label">Status naprawy</label>
+          <input type="text" id="statusNaprawy" class="form-control" placeholder="Status naprawy" th:field="*{status}">
+        </div>
+
+      </fieldset>
+
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Podaj ID Twojego zgłoszenia!</label>
+        <input type="text" id="exampleFormControlTextarea1" class="form-control" placeholder="Status naprawy" th:field="*{id}">
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Wyślij zapytanie</button>
+    </form>
 
 
 

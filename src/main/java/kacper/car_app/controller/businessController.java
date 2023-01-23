@@ -34,8 +34,6 @@ public class businessController {
         return new ModelAndView("servicesPageInfo");
     }
 
-
-
     @GetMapping("/about-us/{nameOfWebPage}")
     public ModelAndView showAboutUs(Model m, @PathVariable String nameOfWebPage){
         //String name = request.getParameter("user_name");
@@ -55,13 +53,5 @@ public class businessController {
         m.addAttribute("pageName", nameOfPage);
         return new ModelAndView("aboutPage");
     }
-
-
-    @GetMapping("/check-state")
-    public ModelAndView checkState(){
-        return new ModelAndView("checkState");
-    }
-
-
 
 }
