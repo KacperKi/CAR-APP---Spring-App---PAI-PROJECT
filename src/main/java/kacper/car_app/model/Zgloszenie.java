@@ -26,9 +26,9 @@ public class Zgloszenie {
     @Column(name = "status")
     private String status = "";
 
-    @NotNull(message = "Opis nie może być pusty!")
-    @Pattern(regexp = "[a-zA-Z0-9,.-]{10,500}", message="Niepoprawny opis zgłoszenia!")
+//    @Pattern(regexp = "[a-zA-Z0-9\.\,\-]{10,500}", message="Niepoprawny opis zgłoszenia!")
     @Column(name = "opis")
+    @NotNull(message = "Opis nie może być pusty!")
     private String opis;
 
     @NotNull(message = "Marka nie może być pusty!")
@@ -37,17 +37,17 @@ public class Zgloszenie {
     private String marka;
 
     @NotNull(message = "Model nie może być pusty!")
-    @Pattern(regexp = "[a-zA-Z]{2,20}", message="Niepoprawny model!")
+    @Pattern(regexp = "[a-zA-Z0-9]{2,30}", message="Niepoprawny model!")
     @Column(name = "model")
     private String model;
 
     @NotNull(message = "Typ nie może być pusty!")
-    @Pattern(regexp = "[a-zA-Z]{2,20}", message="Niepoprawny typ!")
+    @Pattern(regexp = "[a-zA-Z\\s]{2,20}", message="Niepoprawny typ!")
     @Column(name = "typ")
     private String typ;
 
     @NotNull(message = "Numer nie może być pusty!")
-    @Pattern(regexp = "[0-9]{9,11}", message="Podaj poprawny ")
+    @Pattern(regexp = "[0-9]{9,11}", message="Podaj poprawny telefon")
     @Column(name = "telefon")
     private String telefon;
 

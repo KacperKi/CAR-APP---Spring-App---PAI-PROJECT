@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -51,6 +54,29 @@ public class operatorController {
         ModelAndView t = new ModelAndView("adminLoginPage");
         return t;
     }
+
+
+//    Dodanie zgloszenia
+//
+//
+    @GetMapping("/adminPanel/dodaj-zgloszenie")
+    public ModelAndView dodajZgloszenieDoBazy(Model m){
+        m.addAttribute("zgloszenie", new Zgloszenie());
+        return new ModelAndView("adminDodajZgloszenie");
+    }
+
+    @PostMapping("/adminPanel/dodaj-zgloszenie")
+    public ModelAndView returnZgloszeniePage(@Valid Zgloszenie zgloszenie, BindingResult binding, Model m) {
+        if(binding.hasErrors()){
+            System.out.println("Błędne dane!");
+            return new ModelAndView("adminDodajZgloszenie");
+        }
+        zgloszeniaDao.save(zgloszenie);
+        m.addAttribute("zgloszenia", zgloszeniaDao.findAll());
+        return new ModelAndView("adminMainPage");
+    }
+
+
 
 
 }
