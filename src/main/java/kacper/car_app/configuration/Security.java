@@ -45,8 +45,6 @@ public class Security extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers(
                             "/resources/static/**",
-                            "/home","/**",
-                            "/about-us/**",
                             "/js/**",
                             "/css/**",
                             "/register",
@@ -55,7 +53,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                     .anyRequest().permitAll()
                     .and()
                     .formLogin()
-                    .loginPage("/login")
+                    .loginPage("/adminPanel/login")
                     .usernameParameter("login")
                     .usernameParameter("passwd")
                     .defaultSuccessUrl("/client/showClients", true)
