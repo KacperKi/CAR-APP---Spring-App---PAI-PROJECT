@@ -25,7 +25,7 @@ public class CarAppApplication {
 
 	@PostConstruct
 	public void init() {
-		dao.save(new User("Kacper", "Kisielewski","administrator", passwordEncoder.encode("administrator")));
+//		dao.save(new User("Kacper", "Kisielewski","administrator", passwordEncoder.encode("administrator")));
 	}
 
 }

@@ -55,13 +55,16 @@ public class Security extends WebSecurityConfigurerAdapter {
                     .formLogin()
                     .loginPage("/adminPanel/login")
                     .usernameParameter("login")
-                    .usernameParameter("passwd")
+                    .usernameParameter("password")
                     .defaultSuccessUrl("/client/showClients", true)
                     .permitAll()
                     .and()
                     .logout()
                     .logoutUrl("/logout")
                     .logoutSuccessUrl("/login")
-                    .invalidateHttpSession(true);
+                    .invalidateHttpSession(true)
+                     .and()
+                    .formLogin()
+                    .failureUrl("/error-page.html");
     }
 }

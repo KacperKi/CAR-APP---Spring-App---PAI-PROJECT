@@ -15,20 +15,26 @@
         <h1>Logowanie do panelu administracyjnego</h1>
         <h2>Auto-Serwis - licencja standardowa</h2><br>
 
-<!--        <span th:if="${loginError}">Błędna nazwa lub hasło użytkownika.</span>-->
+        <span th:if="${loginError}">Błędna nazwa lub hasło użytkownika.</span>
 
-        <form>
+        <form th:action="@{/login}" method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Login</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="login">
                 <div id="emailHelp" class="form-text">Nie udostępniamy danych administracyjnych użytkownikom.</div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Hasło</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="passsword">
             </div>
             <button type="submit" class="btn btn-primary">Zaloguj</button>
         </form>
+
+        <th:if test="${param.auth eq 'failure'}">
+            <div class="error">
+                <th:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+            </div>
+        </th:if>
 
 
 <!--        -->

@@ -1,6 +1,7 @@
 package kacper.car_app.controller;
 
 import kacper.car_app.model.Client;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
