@@ -19,7 +19,6 @@ import javax.validation.constraints.Pattern;
 public class Zgloszenie {
 
     @Id
-//    @NotNull(message = "ID musi być podane w polu! Nie oszukuj!")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
@@ -28,25 +27,21 @@ public class Zgloszenie {
 
 //    @Pattern(regexp = "[a-zA-Z0-9\.\,\-]{10,500}", message="Niepoprawny opis zgłoszenia!")
     @Column(name = "opis")
-    @NotNull(message = "Opis nie może być pusty!")
+    @NotEmpty(message = "Opis nie może być pusty!")
     private String opis;
 
-    @NotNull(message = "Marka nie może być pusty!")
-    @Pattern(regexp = "[a-zA-Z]{2,20}", message="Niepoprawna marka!")
+    @Pattern(regexp = "[a-zA-Z\\s]{2,20}", message="Niepoprawna marka!")
     @Column(name = "marka")
     private String marka;
 
-    @NotNull(message = "Model nie może być pusty!")
-    @Pattern(regexp = "[a-zA-Z0-9]{2,30}", message="Niepoprawny model!")
+    @Pattern(regexp = "[a-zA-Z0-9\\s]{2,30}", message="Niepoprawny model!")
     @Column(name = "model")
     private String model;
 
-    @NotNull(message = "Typ nie może być pusty!")
-    @Pattern(regexp = "[a-zA-Z\\s]{2,20}", message="Niepoprawny typ!")
+    @Pattern(regexp = "[a-zA-ZAaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż\\s]{2,20}", message="Niepoprawny typ!")
     @Column(name = "typ")
     private String typ;
 
-    @NotNull(message = "Numer nie może być pusty!")
     @Pattern(regexp = "[0-9]{9,11}", message="Podaj poprawny telefon")
     @Column(name = "telefon")
     private String telefon;

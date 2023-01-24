@@ -58,9 +58,15 @@
                 <span style="color: red;" th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"></span>
             </div>
 
+            <br><h6 style="text-align:left;">Podaj Status zgłoszenia</h6>
+            <div class="row" style="margin-top: 20px;">
+                <input type="text" class="form-control" placeholder="Status" aria-label="Status"  th:field="*{status}">
+                <span style="color: red;" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span>
+            </div>
+
             <div style="margin-top: 20px;">
                 <button type="submit" class="btn btn-success">Dodaj zapytanie!</button>
-                <button type="button" onclick="/adminMainPage" class="btn btn-danger">Anuluj zgłoszenie</button>
+                <button onclick="location.href='/adminMainPage'" type="button" class="btn btn-danger">Anuluj zgłoszenie</button>
             </div>
         </form>
 

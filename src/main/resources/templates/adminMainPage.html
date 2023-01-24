@@ -13,9 +13,12 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
         <span>
-            <a href="/" class="logo">Panel Administracyjny Auto-Serwis</a>
+            <a href="/adminMainPage" class="logo">Panel Administracyjny Auto-Serwis</a>
             <img src="/images/car_icon_main.png" alt="Car icon" style="max-width: 4%;">
         </span>
+        <div>
+            Witaj <b><span style="font:" sec:authentication="name"></span></b>!
+        </div>
 
         <nav sec:authorize="isAuthenticated()" class="nav-items">
             <a href="/adminPanel/dodaj-zgloszenie">Dodaj zgłoszenie</a>
@@ -75,6 +78,8 @@
                 <th>Model</th>
                 <th>Typ</th>
                 <th>Telefon</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
             </tr>
             </thead>
             <tr th:each="zgloszenie : ${zgloszenia}">
@@ -83,10 +88,20 @@
                 <td class="align-middle" th:text="${zgloszenie.model}"></td>
                 <td class="align-middle" th:text="${zgloszenie.typ}"></td>
                 <td class="align-middle" th:text="${zgloszenie.telefon}"></td>
+                <td class="align-middle">
+                    <form th:action="@{/adminEdit/{id}(id=${zgloszenie.id})}" method="post">
+                        <button class="btn btn-info" type="submit" onClick="return confirm('Edytować element?')"/> Edytuj </button>
+                    </form>
+                </td>
+                <td class="align-middle">
+                    <form th:action="@{/adminRemove/{id}(id=${zgloszenie.id})}" method="post">
+                        <button class="btn btn-danger" type="submit" onClick="return confirm('Usunąć element?')"/> Usuń </button>
+                    </form>
+                </td>
             </tr>
         </table>
 
-        
+
 
     </main>
 

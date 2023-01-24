@@ -9,10 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -71,11 +68,81 @@ public class operatorController {
             System.out.println("Błędne dane!");
             return new ModelAndView("adminDodajZgloszenie");
         }
+
         zgloszeniaDao.save(zgloszenie);
+        m.addAttribute("zgloszenia", zgloszeniaDao.findAll());
+
+        return new ModelAndView("adminMainPage");
+    }
+
+    @PostMapping("/adminPanel/edytuj-zgloszenie/{id}")
+    public ModelAndView edytujZgloszenie(@Valid Zgloszenie zgloszenie,BindingResult binding, @PathVariable Long id, Model m) {
+        if(binding.hasErrors()){
+            System.out.println("Błędne dane!");
+            return new ModelAndView("adminEdytujZgloszenie");
+        }
+        if(zgloszeniaDao.findById(id) == null) System.out.println("Błąd pobrania danych!");
+        else {
+                Zgloszenie updatedZgloszenie = zgloszeniaDao.findById(id);
+
+                updatedZgloszenie.setStatus(zgloszenie.getStatus());
+                updatedZgloszenie.setOpis(zgloszenie.getOpis());
+                updatedZgloszenie.setTyp(zgloszenie.getTyp());
+                updatedZgloszenie.setMarka(zgloszenie.getMarka());
+                updatedZgloszenie.setModel(zgloszenie.getModel());
+                updatedZgloszenie.setTelefon(zgloszenie.getTelefon());
+                zgloszeniaDao.save(updatedZgloszenie);
+
+        }
         m.addAttribute("zgloszenia", zgloszeniaDao.findAll());
         return new ModelAndView("adminMainPage");
     }
 
+    @PostMapping("/adminRemove/{id}")
+    public ModelAndView removeZgloszenie(@PathVariable Long id, Model m) {
+        if(zgloszeniaDao.findById(id)!=null) {
+            Zgloszenie n = zgloszeniaDao.findById(id);
+            zgloszeniaDao.delete(n);
+        }else{
+            System.out.println("Brak elementu w bd!");
+        }
+        m.addAttribute("zgloszenia", zgloszeniaDao.findAll());
+        return new ModelAndView("adminMainPage");
+    }
+
+    @GetMapping("/adminRemove/{id}")
+    public ModelAndView removeZgloszenieGet(@PathVariable Long id, Model m) {
+        if(zgloszeniaDao.findById(id)!=null) {
+            Zgloszenie n = zgloszeniaDao.findById(id);
+            zgloszeniaDao.delete(n);
+        }else{
+            System.out.println("Brak elementu w bd!");
+        }
+        m.addAttribute("zgloszenia", zgloszeniaDao.findAll());
+        return new ModelAndView("adminMainPage");
+    }
+
+    @PostMapping("/adminEdit/{id}")
+    public ModelAndView editZgloszenie(@PathVariable Long id, Model m) {
+        if(zgloszeniaDao.findById(id)!=null) {
+            Zgloszenie n = zgloszeniaDao.findById(id);
+            m.addAttribute("zgloszenie", n);
+            return new ModelAndView("adminEdytujZgloszenie");
+        }else{
+            return new ModelAndView("adminMainPage");
+        }
+    }
+
+    @GetMapping("/adminEdit/{id}")
+    public ModelAndView editZgloszenie1(@PathVariable Long id, Model m) {
+        if(zgloszeniaDao.findById(id)!=null) {
+            Zgloszenie n = zgloszeniaDao.findById(id);
+            m.addAttribute("zgloszenie", n);
+            return new ModelAndView("adminEdytujZgloszenie");
+        }else{
+            return new ModelAndView("adminMainPage");
+        }
+    }
 
 
 
