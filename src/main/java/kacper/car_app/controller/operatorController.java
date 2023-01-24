@@ -199,5 +199,23 @@ public class operatorController {
         return new ModelAndView("adminMainPage");
     }
 
+    @GetMapping("/adminPanel/lista-pracownikow")
+    public ModelAndView listPracownikView(Model m){
+        m.addAttribute("pracownicy", dao.findAll());
+        return new ModelAndView("adminListPracownik");
+    }
+
+    @PostMapping("/adminRemoveUser/{id}")
+    public ModelAndView removePracownik(@PathVariable Long id, Model m) {
+        if(dao.findByUserid(id)!=null) {
+           User mod = dao.findByUserid(id);
+           dao.delete(mod);
+
+        }else{
+            System.out.println("Brak elementu w bd!");
+        }
+        m.addAttribute("pracownicy", dao.findAll());
+        return new ModelAndView("adminMainPage");
+    }
 
 }

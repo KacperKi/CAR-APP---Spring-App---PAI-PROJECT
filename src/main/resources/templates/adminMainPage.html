@@ -23,6 +23,7 @@
         <nav sec:authorize="isAuthenticated()" class="nav-items">
             <a href="/adminPanel/dodaj-zgloszenie">Dodaj zgłoszenie</a>
             <a href="/adminPanel/dodaj-pracownika">Dodaj pracownika</a>
+            <a th:if="${#authentication.getPrincipal().getUsername()} == 'administrator'" href="/adminPanel/lista-pracownikow">Lista pracowników</a>
             <a href="#">Katalog części</a>
         </nav>
     </header>
