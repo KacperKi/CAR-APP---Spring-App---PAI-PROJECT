@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="adminLayout :: head">
+</head>
+
+<body>
+<header class="header" th:fragment="headerPanel">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
+
+  <span>
+                <a href="/" class="logo">Panel Administracyjny Auto-Serwis</a>
+                <img src="/images/car_icon_main.png" alt="Car icon" style="max-width: 4%;">
+        </span>
+
+  <nav sec:authorize="isAuthenticated()" class="nav-items">
+    <a href="/adminPanel/dodaj-zgloszenie">Dodaj zgłoszenie</a>
+    <a href="/adminPanel/dodaj-pracownika">Dodaj pracownika</a>
+    <a href="#">Katalog części</a>
+  </nav>
+</header>
+
+
+<main style="max-width: 90%; margin: auto; text-align:center;">
+  <h1>Dodaj pracownika do Bazy!</h1>
+
+  <form th:action="@{/adminPanel/dodaj-pracownika}" method="POST" th:object="${user}"
+        style="max-width:50%; margin:auto; margin-top:40px;">
+
+      <br><h6 style="text-align:left;">Podaj Imię</h6>
+      <div class="row" style="margin-top: 20px; margin:auto;">
+        <input type="text"  class="form-control"  th:field="*{name}" placeholder="Imię"/>
+        <span style="color: red;" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+      </div>
+
+      <br><h6 style="text-align:left;">Podaj Nazwisko</h6>
+      <div class="row" style="margin-top: 20px; margin:auto;">
+          <input type="text"  class="form-control"  th:field="*{surname}" placeholder="Nazwisko"/>
+          <span style="color: red;" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span>
+      </div>
+
+      <br><h6 style="text-align:left;">Podaj Hasło</h6>
+      <div class="row" style="margin-top: 20px; margin:auto;">
+          <input type="password"  class="form-control"  th:field="*{password}" placeholder="Hasło"/>
+          <span style="color: red;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+          <span th:if="${uzytkownikIstnieje}">Nazwa użytkownika istnieje</span>
+      </div>
+
+      <br><h6 style="text-align:left;">Podaj Login</h6>
+      <div class="row" style="margin-top: 20px; margin:auto;">
+          <input type="text"  class="form-control"  th:field="*{login}" placeholder="Login"/>
+          <span style="color: red;" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span>
+      </div>
+
+    <button th:if="${#authentication.getPrincipal().getUsername()} == 'administrator'" type="submit" style="max-width: 80%; margin:auto;margin-top:20px;" class="btn btn-success">
+        Zarejestruj pracownika!
+    </button>
+
+  </form>
+
+
+
+</main>
+
+
+<div th:include="adminLayout :: footer"  style="max-width: 60%; margin: auto; text-align:center;" ></div>
+</body>
+</html>

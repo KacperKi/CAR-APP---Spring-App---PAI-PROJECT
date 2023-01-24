@@ -3,6 +3,8 @@ package kacper.car_app.controller;
 import kacper.car_app.dao.userDao;
 import kacper.car_app.dao.zgloszenieDao;
 import kacper.car_app.model.Client;
+import kacper.car_app.model.User;
+
 import kacper.car_app.model.Zgloszenie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -157,8 +160,11 @@ public class operatorController {
                 m.addAttribute("zgloszenia", zgloszeniaDao.findByTelefon(value));
                 break;
             case "id":
-                List<Zgloszenie> lista = null;
-                lista.add(zgloszeniaDao.findById(Long.parseLong(value)));
+                List<Zgloszenie> lista = new ArrayList<>();
+                String regex = "[0-9]{1,20}";
+                if(value.matches(regex)){
+                    lista.add(zgloszeniaDao.findById(Long.parseLong(value)));
+                }
                 m.addAttribute("zgloszenia", lista);
                 break;
             case "marka":
@@ -170,7 +176,28 @@ public class operatorController {
 
 
 
+//    Dodaj pracownika
+//
+//
+    @GetMapping("/adminPanel/dodaj-pracownika")
+    public ModelAndView dodajPracownikaDoBazy(Model m){
+        m.addAttribute("user", new User());
+        return new ModelAndView("adminDodajPracownika");
+    }
 
+    @PostMapping("/adminPanel/dodaj-pracownika")
+    public ModelAndView registerPagePOST(@Valid User user, BindingResult binding, Model m) {
+        if (binding.hasErrors()) {
+            new ModelAndView("adminDodajPracownika");
+        } else if (dao.findByLogin(user.getLogin()) != null) {
+            m.addAttribute("uzytkownikIstnieje", true);
+            new ModelAndView("adminDodajPracownika");
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        dao.save(user);
+        m.addAttribute("zgloszenia", zgloszeniaDao.findAll());
+        return new ModelAndView("adminMainPage");
+    }
 
 
 }
