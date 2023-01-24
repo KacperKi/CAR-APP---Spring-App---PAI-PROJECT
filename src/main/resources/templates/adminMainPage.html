@@ -30,41 +30,39 @@
         <h3 style="margin-bottom:20px;margin-top:20px;">Wyszukiwanie zaawansowane</h3>
         <div style="margin-top:30px;  display: flex; justify-content: space-between; ">
 
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="telefonIDspan">Telefon</span>
-
-                <input type="text" class="form-control" aria-label="Sizing example input"
-                       placeholder="695 125 751" aria-describedby="telefonIDspan">
-
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary">Szukaj</button>
-                    <button type="button" class="btn btn-outline-primary">Wyczyść</button>
+            <form action="/filtruj/telefon" method="post">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="telefonIDspan">Telefon</span>
+                            <input id="value" name="value" type="text" class="form-control" aria-label="Sizing example input"
+                                            placeholder="695 125 751" aria-describedby="telefonIDspan">
+                            <button type="submit" class="btn btn-outline-primary">Szukaj</button>
                 </div>
-            </div>
+            </form>
 
-            <div class="input-group input-group-sm mb-3" >
-                <span class="input-group-text" id="inputTelefonSpan">ID</span>
+            <form action="/filtruj/id" method="post">
+                <div class="input-group input-group-sm mb-3" >
+                    <span class="input-group-text" id="inputTelefonSpan">ID</span>
 
-                <input type="text" class="form-control" aria-label="Sizing example input"
-                       placeholder="0" aria-describedby="inputTelefonSpan">
-
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary">Szukaj</button>
-                    <button type="button" class="btn btn-outline-primary">Wyczyść</button>
+                    <input id="value" name="value" type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="0" aria-describedby="inputTelefonSpan">
+                        <button type="submit" class="btn btn-outline-primary">Szukaj</button>
                 </div>
-            </div>
+            </form>
 
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputMarkaSpan">Marka</span>
+            <form action="/filtruj/marka" method="post">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputMarkaSpan">Marka</span>
 
-                <input type="text" class="form-control" aria-label="Sizing example input"
-                       placeholder="Ford" aria-describedby="inputMarkaSpan">
-
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary">Szukaj</button>
-                    <button type="button" class="btn btn-outline-primary">Wyczyść</button>
+                    <input id="value" name="value" type="text" class="form-control" aria-label="Sizing example input"
+                           placeholder="Ford" aria-describedby="inputMarkaSpan">
+                        <button type="submit" class="btn btn-outline-primary">Szukaj</button>
                 </div>
-            </div>
+            </form>
+
+            <form action="/adminMainPage" method="get">
+                <button type="submit" class="btn btn-outline-primary">Wyczyść</button>
+            </form>
+
         </div>
 
 

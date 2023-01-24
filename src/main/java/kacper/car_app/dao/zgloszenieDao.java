@@ -9,4 +9,8 @@ import java.util.List;
 public interface zgloszenieDao extends CrudRepository<Zgloszenie, Integer> {
     public Zgloszenie findById(Long id);
     public List<Zgloszenie> findByTelefon(String telefon);
+
+    public List<Zgloszenie> findByMarka(String marka);
+
+
 }

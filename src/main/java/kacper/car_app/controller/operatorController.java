@@ -145,5 +145,32 @@ public class operatorController {
     }
 
 
+//    Wyszukiwarka zaawansowana
+//
+//
+//
+
+    @PostMapping("/filtruj/{atr}")
+    public ModelAndView filtrByTelefon(@PathVariable String atr, String value, Model m){
+        switch(atr){
+            case "telefon":
+                m.addAttribute("zgloszenia", zgloszeniaDao.findByTelefon(value));
+                break;
+            case "id":
+                List<Zgloszenie> lista = null;
+                lista.add(zgloszeniaDao.findById(Long.parseLong(value)));
+                m.addAttribute("zgloszenia", lista);
+                break;
+            case "marka":
+                m.addAttribute("zgloszenia", zgloszeniaDao.findByMarka(value));
+                break;
+        }
+        return new ModelAndView("adminMainPage");
+    }
+
+
+
+
+
 
 }
